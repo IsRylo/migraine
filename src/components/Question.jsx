@@ -11,15 +11,16 @@ function createInput(answer, index){
     );
 }
 
-export default function Question({question, answers, onAnswerSubmit, options, onData}){
+export default function Question({question, answers, onAnswerSubmit, options, onData, threshold, parameter}){
 
     function handleSubmit(){
-        const response = parseInt(document.querySelector('input[name="response"]:checked').value);
-        onAnswerSubmit(options[response]);
+        const response = parseInt(document.querySelector('input[name="response"]').value);
+        onAnswerSubmit(options[response <= threshold ? 0 : 1]);
         onData(
             {
                 question: question,
-                answer: answers[response],
+                parameter: parameter,
+                answer: response,
                 date: new Date().toLocaleString()
             }
         );
@@ -31,10 +32,10 @@ export default function Question({question, answers, onAnswerSubmit, options, on
             <form className="mt-4">
                 <div className="form-group">
                     <p>{question}</p>
-                    <Input />
+                    {parameter != undefined ? <Input parameter={parameter}/> : ""}
                 </div>
             </form>
-            {/* {answers.length > 0 ? <button id="submit" className="btn btn-primary mt-3" onClick={handleSubmit}>Submit</button> : <p>No Answer option was found</p>} */}
+            {parameter != undefined ? <button id="submit" className="btn btn-primary mt-3" onClick={handleSubmit}>Submit</button> : ""}
         </div>
     );
 }

@@ -4,6 +4,7 @@ import Answer from "./Answer";
 import Explanation from "./Explanation";
 import Question from "./Question";
 import MigraineTree from "../rules/MigraineTree";
+ 
 
 const tree = MigraineTree;
 var activities = [];
@@ -19,7 +20,8 @@ function App(props) {
     {
       question: curr.question,
       answer: "",
-      date: new Date().toLocaleString()
+      date: new Date().toLocaleString(),
+      parameter:""
     }
   );
 
@@ -30,9 +32,8 @@ function App(props) {
   // Mencatat perubahan state 
   useEffect(() => {
     activities.push(data);
-  },[data]);
-
-  console.log(activities);
+  },[key]);
+  
   return (
     <div className="App container">
       <h1>Migraine Diagnostic System</h1>
@@ -41,9 +42,11 @@ function App(props) {
           <Question
             question={!curr.isLeaf ? curr.question : "No Questions Found."}
             answers={curr != undefined ? curr.answers : []}
+            options={curr.children.map(child => {return child.key})}
+            threshold={curr.threshold}
+            parameter = {curr.parameter}
             onAnswerSubmit={setKey}
             onData={questionToApp}
-            options={curr.children.map(child => {return child.key})}
           />
         </div>
         <div className="col">
