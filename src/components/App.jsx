@@ -3,10 +3,10 @@ import React, {useState, useEffect} from "react";
 import Answer from "./Answer";
 import Explanation from "./Explanation";
 import Question from "./Question";
-import MigraineTree from "../rules/MigraineTree";
+// import MigraineTree from "../rules/MigraineTree";
  
 
-const tree = MigraineTree;
+// const tree = MigraineTree;
 var activities = [];
 
 function App(props) {
@@ -14,7 +14,7 @@ function App(props) {
 
   // Fungsi untuk menerima data dari Question
 
-  let curr = tree.find(key);
+  // let curr = tree.find(key);
   
   const [data, setData] = useState(
     {
@@ -33,7 +33,7 @@ function App(props) {
   useEffect(() => {
     activities.push(data);
   },[key]);
-  
+
   return (
     <div className="App container">
       <h1>Migraine Diagnostic System</h1>
@@ -41,10 +41,11 @@ function App(props) {
         <div className="col">
           <Question
             question={!curr.isLeaf ? curr.question : "No Questions Found."}
-            answers={curr != undefined ? curr.answers : []}
-            options={curr.children.map(child => {return child.key})}
-            threshold={curr.threshold}
+            // answers={curr != undefined ? curr.answers : []}
+            // options={curr.children.map(child => {return child.key})}
+            // threshold={curr.threshold}
             parameter = {curr.parameter}
+            currKey = {key}
             onAnswerSubmit={setKey}
             onData={questionToApp}
           />
