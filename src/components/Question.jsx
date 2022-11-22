@@ -31,10 +31,10 @@ export default function Question({question, answers, onAnswerSubmit, options, on
             <form className="mt-4">
                 <div className="form-group">
                     <p>{question}</p>
-                    {answers.map(createInput)}
+                    <Input />
                 </div>
             </form>
-            {answers.length > 0 ? <button id="submit" className="btn btn-primary mt-3" onClick={handleSubmit}>Submit</button> : <p>No Answer option was found</p>}
+            {/* {answers.length > 0 ? <button id="submit" className="btn btn-primary mt-3" onClick={handleSubmit}>Submit</button> : <p>No Answer option was found</p>} */}
         </div>
     );
 }

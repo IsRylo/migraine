@@ -1,8 +1,10 @@
 export default function Input(props) {
     return(
         <div className="Input">
-            <input type="radio" className="form-check-input" id={props.answer + "RadioButton"} aria-describedby="button" name="response" value={props.value}/>
-            <label className="mx-2">{props.answer}</label>
+            <label className="mx-2">Visual: </label>
+            <input type="number" className="" id={props.answer + "Number"} aria-describedby="button" name="response" placeholder="Masukkan Nilai"/>
+            {/* TODO: INPUT UNIT */}
+            <label className="mx-2">Unit</label>
         </div>
     );
 }

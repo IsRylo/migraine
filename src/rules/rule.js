@@ -90,7 +90,7 @@ function predict(Age, Frequency, Location, Character, Intensity, Photophobia, Vi
     }
 }
 
-function getClass(Age, Frequency, Location, Character, Intensity, Photophobia, Visual, Sensory, Dysphasia, Vertigo, Tinnitus, Hypoacusis, Defect, DPF) {
+export default function getClass(Age, Frequency, Location, Character, Intensity, Photophobia, Visual, Sensory, Dysphasia, Vertigo, Tinnitus, Hypoacusis, Defect, DPF) {
     classes = ['Basilar-type aura', 'Familial hemiplegic migraine', 'Migraine without aura', 'Other', 'Sporadic hemiplegic migraine', 'Typical aura with migraine', 'Typical aura without migraine']
     result = predict(Age, Frequency, Location, Character, Intensity, Photophobia, Visual, Sensory, Dysphasia, Vertigo, Tinnitus, Hypoacusis, Defect, DPF);
     index = result.indexOf(Math.max(...result));

@@ -1,0 +1,15 @@
+1) Age: Umur pasien
+2) Duration: Durasi gejala yang terjadi dalam 1 hari
+3) Frequency: Berapa kali kemunculan gejala dalam 1 bulan terakhir
+4) Location: Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)
+5) Character: Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)
+6) Intensity: Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)
+7) Photophobia: Sensitif terhadap cahaya (Tidak - 0, Ya - 1)
+8) Visual: Banyak komplikasi atau gejala yang berhubungan dengan penglihatan
+9) Sensory: Banyak komplikasi atau gejala yang berhubungan dengan indrawi
+10) Dysphasia: Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)
+11) Vertigo: Mengalami pusing-pusing (Tidak - 0, Ya - 1)
+12) Tinnitus: Telinga berdenging (Tidak - 0, Ya - 1)
+13) Hypoacusis: Gangguang pendengaran (Tidak - 0, Ya - 1)
+14) Visual defect: Cacat pada baik pada satu atau kedua mata bersamaan dengan bidang hidung (Tidak - 0, Ya - 1)
+15) DPF: Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)
