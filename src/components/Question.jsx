@@ -11,14 +11,15 @@ function createInput(answer, index){
     );
 }
 
-export default function Question({question, answers, onAnswerSubmit, options, onData, threshold, parameter}){
+export default function Question({question, answers, onAnswerSubmit, options, onData, threshold, parameter, currKey}){
 
     function handleSubmit(){
         const response = parseInt(document.querySelector('input[name="response"]').value);
         // onAnswerSubmit(options[response <= threshold ? 0 : 1]);
-        onAnswerSubmit(key + 1);
+        onAnswerSubmit(currKey + 1);
         onData(
             {
+                
                 question: question,
                 parameter: parameter,
                 answer: response,

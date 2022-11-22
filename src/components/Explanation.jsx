@@ -10,7 +10,8 @@ function displayActiviy(data, index) {
 }
 
 export default function Explanation({activities}){
-    console.log(activities);
+    // console.log(activities);
+    activities.splice(0, 2);
     return (
         <div id="Explanation">
             <h2>Explanation Section</h2>

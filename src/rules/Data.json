@@ -1,14 +1,11 @@
 {
     "00": {
         "parameter": "Visual",
-        "question": "Berapa banyak komplikasi atau gejala yang berhubungan dengan penglihatan?"
         "threshold": 0.5,
         "question": "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan"
     },
 
     "10": {
-        "parameter": "Visual",
-        "question": "Berapa banyak komplikasi atau gejala yang berhubungan dengan penglihatan?"
         "parent": "00",
         "parameter": "Sensory",
         "threshold": 0.5,
@@ -184,7 +181,7 @@
 
     "62": {
         "parent": "52",
-        "parameter": "Visual"
+        "parameter": "Visual",
         "threshold": 1.5,
         "question": "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan"
     },
