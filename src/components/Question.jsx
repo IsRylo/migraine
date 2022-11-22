@@ -15,7 +15,8 @@ export default function Question({question, answers, onAnswerSubmit, options, on
 
     function handleSubmit(){
         const response = parseInt(document.querySelector('input[name="response"]').value);
-        onAnswerSubmit(options[response <= threshold ? 0 : 1]);
+        // onAnswerSubmit(options[response <= threshold ? 0 : 1]);
+        onAnswerSubmit(key + 1);
         onData(
             {
                 question: question,

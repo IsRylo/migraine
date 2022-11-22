@@ -1,11 +1,22 @@
 {
     "0": {
+        "parent": null,
         "parameter": "Visual",
-        "question": "Berapa banyak komplikasi atau gejala yang berhubungan dengan penglihatan?"
+        "question": "Berapa banyak komplikasi atau gejala yang berhubungan dengan penglihatan?",
+        "threshold" : 0.5
     },
 
     "10": {
-        "parameter": "Visual",
-        "question": "Berapa banyak komplikasi atau gejala yang berhubungan dengan penglihatan?"
+        "parent": "0",
+        "parameter": "Sensory",
+        "question": "Berapa banyak komplikasi atau gejala yang berhubungan dengan penglihatan?",
+        "threshold": 0.5
+    },
+
+    "11" : {
+        "parent": "0",
+        "parameter": "Character",
+        "question" : "Berapa banyak character yang diperlukan?",
+        "threshold": 0.5
     }
 }
