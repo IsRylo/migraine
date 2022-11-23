@@ -1,6 +1,5 @@
 import "../App.css"
 import React, {useState, useEffect} from "react";
-import Answer from "./Answer";
 import Question from "./Question";
 import QuestionTree from "../rules/QuestionTree";
 import getClass from "../rules/MigraineRules"
@@ -9,42 +8,38 @@ import Explanation from "./Explanation";
 
 const key_length = 15;
 
-var activities = [];
+let activities = [];
+
+let params = {};
 
 function App(props) {
   // let curr = tree.find(key);
 
   const [currNode, setCurr] = useState(QuestionTree.root);
 
-  console.log(currNode);
-
-  // function processAnswer() {
-  //   console.log("Activities: ");
-  //   console.log(activities)
-  //   var a = {};
-  //   for (let i = 1; i < activities.length; i++) {
-  //     a[activities[i].parameter] = activities[i].answer;
-  //   }
-  //   console.log(a);
-  //   var c = getClass(a);
-  //   console.log(c);
-  //   return c;
-  // }
+  function processAnswer() {
+    var c = getClass(params);
+    return c;
+  }
 
   // Mencatat perubahan state 
-  // useEffect(() => {
-  //   activities.push(data);
-  // }, [key]);
+  useEffect(() => {
+    if (currNode.parameter in params) {
+      console.log("Skipped " + currNode.question);
+      setCurr(currNode["children"][params[currNode.parameter] <= currNode["threshold"] ? 0 : 1]);
+    }
+  }, [currNode]);
 
   function handleSubmit(){
     const response = parseInt(document.querySelector('input[name="response"]').value);
     const answer = {
       "question": currNode.question,
       "response": response,
-      "date": new Date().toLocaleString()
+      "date": new Date().toLocaleString(),
+      "parameter": currNode["parameter"]
     };
     activities.push(answer);
-    console.log(activities);
+    params[currNode.parameter] = response;
     setCurr(currNode["children"][response <= currNode["threshold"] ? 0 : 1]);
   }
 
@@ -98,12 +93,8 @@ function App(props) {
 
     {/* Bottom Row */}
     <div className = "row" >
-      {/* Answer Section */}
-    
-      {/* <Answer answer = {
-        processAnswer()
-      } />*/}
- 
+      {currNode.isLeaf ? <h2>Your Migraine Type is: {currNode["migraine"]}</h2> : ""}
+      <p>{currNode.isLeaf ? processAnswer() : ""}</p>      
     </div> 
   </div>
   );

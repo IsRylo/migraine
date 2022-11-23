@@ -17,17 +17,17 @@
     {
         "key": "11",
         "parent": "00",
-        "parameter": "Intensity",
+        "parameter": "Character",
         "threshold": 0.5,
-        "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
+        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
 
     {
         "key": "20",
         "parent": "10",
-        "parameter": "Dysphasia",
-        "threshold": 0.5,
-        "question": "Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)"
+        "parameter": "Intensity",
+        "threshold": 2.5,
+        "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
     },
 
     {
@@ -55,23 +55,23 @@
     {
         "key": "30",
         "parent": "20",
+        "migraine" : "Sporadic hemiplegic migraine"
+    },
+
+    {
+        "key": "31",
+        "parent": "20",
         "parameter": "Character",
         "threshold": 1.5,
         "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
 
     {
-        "key": "31",
-        "parent": "20",
-        "parameter": "Vertigo",
-        "threshold": 0.5,
-        "question": "Mengalami pusing-pusing (Tidak - 0, Ya - 1)"
-    },
-
-    {
         "key": "32",
         "parent": "21",
-        "migraine" : "Basiliar-type aura"
+        "parameter": "Location",
+        "threshold": 1.5,
+        "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)"
     },
 
     {
@@ -83,79 +83,79 @@
     {
         "key": "34",
         "parent": "23",
-        "parameter": "Location",
-        "threshold": 1.5,
-        "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi - 1, Dua atau lebih - 2)"
+        "parameter": "Tinnitus",
+        "threshold": 0.5,
+        "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
     },
 
     {
         "key": "35",
         "parent": "23",
-        "parameter": "Character",
-        "threshold": 1.5,
-        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
+        "parameter": "Defect",
+        "threshold": 0.5,
+        "question": "Cacat pada baik pada satu atau kedua mata bersamaan dengan bidang hidung (Tidak - 0, Ya - 1)"
     },
 
    {
         "key": "40",
-        "parent": "30",
-        "parameter": "Hypoacusis",
+        "parent": "31",
+        "parameter": "Tinnitus",
         "threshold": 0.5,
-        "question": "Gangguan pendengaran (Tidak - 0, Ya - 1)"
+        "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
     },
 
     {
         "key": "41",
-        "parent": "30",
+        "parent": "31",
         "migraine" : "Familial hemiplegic migraine"
     },
 
     {
         "key": "42",
-        "parent": "31",
-        "migraine" : "Sporadic hemiplegic migraine"
+        "parent": "32",
+        "migraine" : "Basilar-type aura"
     },
 
     {
         "key": "43",
-        "parent": "31",
-        "migraine" : "Migraine without aura"
+        "parent": "32",
+        "migraine" : "Familial hemiplegic migraine"
     },
 
     {
         "key": "44",
         "parent": "34",
-        "parameter": "Dysphasia",
-        "threshold": 0.5,
-        "question": "Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)"
+        "parameter": "Location",
+        "threshold": 1.5,
+        "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)"
     },
 
     {
         "key": "45",
         "parent": "34",
-        "migraine" : "Familial hemiplegic migraine"
+        "parameter": "Frequency",
+        "threshold": 1.5,
+        "question": "Berapa kali kemunculan gejala dalam 1 bulan terakhir"
     },
 
     {
         "key": "46",
         "parent": "35",
-        "parameter": "Frequency",
-        "threshold": 3.5,
-        "question": "Berapa kali kemunculan gejala dalam 1 bulan terakhir"
+        "parameter": "Age",
+        "threshold": 30.5,
+        "question": "Umur pasien"
     },
 
     {
         "key": "47",
         "parent": "35",
-        "migraine" : "Familial hemiplegic migraine"
+        "migraine" : "Typical aura with migraine"
     },
 
     {
         "key": "50",
         "parent": "40",
-        "parameter": "Frequency",
-        "threshold": 1.5,
-        "question": "Berapa kali kemunculan gejala dalam 1 bulan terakhir"
+        "migraine":"Typical aura without migraine"
     },
 
     {
@@ -167,232 +167,299 @@
     {
         "key": "52",
         "parent": "44",
+        "parameter": "Dysphasia",
+        "threshold": 0.5,
+        "question": "Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)"
+    },
+
+    {
+        "key": "53",
+        "parent": "44",
+        "migraine":"Familial hemiplegic migraine"
+    },
+
+    {
+        "key": "54",
+        "parent": "45",
+        "parameter": "Character",
+        "threshold": 1.5,
+        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
+    },
+
+    {
+        "key": "55",
+        "parent": "45",
+        "parameter":"DPF",
+        "threshold":0.5,
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
+    },
+    {
+        "key": "56",
+        "parent": "46",
+        "parameter":"DPF",
+        "threshold":0.5,
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
+    },
+    {
+        "key": "57",
+        "parent": "45",
+        "parameter":"Frequency",
+        "threshold":3.5,
+        "question":"Berapa kali kemunculan gejala dalam 1 bulan terakhir"
+    },
+    {
+        "key": "60",
+        "parent": "52",
         "parameter": "Intensity",
         "threshold": 1.5,
         "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
     },
 
     {
-        "key": "53",
-        "parent": "44",
-        "parameter": "DPF",
-        "threshold": 0.5,
-        "question": "Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
-    },
-
-    {
-        "key": "54",
-        "parent": "46",
-        "parameter": "Age",
-        "threshold": 30.5,
-        "question": "Umur pasien"
-    },
-
-    {
-        "key": "55",
-        "parent": "46",
-        "migraine" : "Basilar-type aura"
-    },
-
-    {
-        "key": "60",
-        "parent": "50",
-        "parameter": "Age",
-        "threshold": 32,
-        "question": "Umur pasien"
-    },
-
-    {
         "key": "61",
-        "parent": "50",
-        "migraine" : "Typical aura without migraine"
+        "parent": "52",
+        "parameter": "Age",
+        "threshold": 20.5,
+        "question": "Umur pasien"
     },
 
     {
         "key": "62",
-        "parent": "52",
+        "parent": "54",
+        "migraine":"Migraine without aura"
+    },
+
+    {
+        "key": "63",
+        "parent": "54",
+        "migraine": "Familial hemiplegic migraine"
+    },
+
+    {
+        "key": "64",
+        "parent": "55",
+        "migraine":"Sporadic hemiplegic migraine"
+    },
+
+    {
+        "key": "65",
+        "parent": "55",
+        "migraine" : "Typical aura with migraine"
+    },
+
+    {
+        "key": "66",
+        "parent": "56",
+        "migraine":"Sporadic hemiplegic migraine"
+    },
+
+    {
+        "key": "67",
+        "parent": "56",
+        "parameter": "Photophobia",
+        "threshold": 0.5,
+        "question": "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)"
+    },
+    
+    {
+        "key": "68",
+        "parent": "57",
+        "parameter": "Age",
+        "threshold": 39.5,
+        "question": "Umur pasien"
+    },
+    
+    {
+        "key": "69",
+        "parent": "57",
+        "parameter": "Character",
+        "threshold": 1.5,
+        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
+    },
+
+    {
+        "key": "70",
+        "parent": "60",
         "parameter": "Visual",
         "threshold": 1.5,
         "question": "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan"
     },
 
     {
-        "key": "63",
-        "parent": "52",
-        "parameter": "Tinnitus",
-        "threshold": 0.5,
-        "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
-    },
-
-    {
-        "key": "64",
-        "parent": "53",
-        "parameter": "Sensory",
-        "threshold": 1.0,
-        "question": "Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
-    },
-
-    {
-        "key": "65",
-        "parent": "53",
-        "migraine" : "Migraine without aura"
-    },
-
-    {
-        "key": "66",
-        "parent": "54",
-        "parameter": "DPF",
-        "threshold": 0.5,
-        "question": "Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
-    },
-
-    {
-        "key": "67",
-        "parent": "54",
-        "parameter": "Photophobia",
-        "threshold": 0.5,
-        "question": "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)"
-    },
-
-    {
-        "key": "70",
-        "parent": "60",
-        "parameter": "Age",
-        "threshold": 29,
-        "question": "Umur pasien"
-    },
-
-    {
         "key": "71",
         "parent": "60",
-        "migraine" : "Typical aura without migraine"
+        "parameter":"DPF",
+        "threshold":0.5,
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
     },
 
     {
         "key": "72",
-        "parent": "62",
-        "migraine" : "Migraine without aura"
+        "parent": "61",
+        "parameter":"DPF",
+        "threshold":0.5,
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
     },
 
     {
         "key": "73",
-        "parent": "62",
-        "parameter": "Age",
-        "threshold": 27,
-        "question": "Umur pasien"
+        "parent": "61",
+        "migraine":"Sporadic hemiplegic migraine"
     },
 
     {
         "key": "74",
-        "parent": "63",
-        "parameter": "Phonophobia",
-        "threshold": 0.5,
-        "question": "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)"
+        "parent": "67",
+        "migraine":"Familial hemiplegic migraine"
     },
 
     {
         "key": "75",
-        "parent": "63",
-        "migraine" : "Typical aura with migraine"
+        "parent": "67",
+        "parameter":"Sensory",
+        "threshold":1.0,
+        "question":"Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
     },
 
     {
         "key": "76",
-        "parent": "64",
-        "migraine" : "Sporadic hemiplegic migraine"
+        "parent": "68",
+        "parameter":"DPF",
+        "threshold":0.5,
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
     },
 
     {
         "key": "77",
-        "parent": "64",
-        "migraine" : "Basilar-type aura"
-    },
-
-    {
-        "key": "78",
-        "parent": "66",
-        "parameter": "Defect",
-        "threshold": 0.5,
-        "question": "Cacat pada baik pada satu atau kedua mata bersamaan dengan bidang hidung (Tidak - 0, Ya - 1)"
-    },
-
-    {
-        "key": "79",
-        "parent": "66",
-        "parameter": "Duration",
-        "threshold": 2.5,
-        "question": "Durasi gejala yang terjadi dalam 1 hari"
-    },
-
-    {
-        "key": "710",
-        "parent": "67",
+        "parent": "68",
         "migraine" : "Familial hemiplegic migraine"
     },
 
     {
-        "key": "711",
-        "parent": "67",
-        "migraine" : "Typical aura with migraine"
+        "key": "78",
+        "parent": "69",
+        "migraine":"Basilar-type aura"
+    },
+
+    {
+        "key": "79",
+        "parent": "69",
+        "migraine":"Familial hemiplegic migraine"
     },
 
     {
         "key": "80",
         "parent": "70",
-        "migraine" : "Typical aura without migraine"
+        "migraine" : "Migraine without aura"
     },
 
     {
         "key": "81",
         "parent": "70",
-        "migraine" : "Familial hemiplegic migraine"
+        "parameter":"Sensory",
+        "threshold":0.5,
+        "question":"Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
     },
 
     {
         "key": "82",
-        "parent": "73",
-        "migraine" : "Sporadic hemiplegic migraine"
+        "parent": "71",
+        "parameter":"Sensory",
+        "threshold":0.5,
+        "question":"Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
     },
 
     {
         "key": "83",
-        "parent": "73",
-        "migraine" : "Basilar-type aura"
+        "parent": "71",
+        "parameter":"Age",
+        "threshold":27.5,
+        "question":"Umur pasien"
     },
 
     {
         "key": "84",
-        "parent": "74",
-        "migraine" : "Familial hemiplegic migrain"
-    },
-
-    {
-        "key": "85",
-        "parent": "74",
+        "parent": "72",
         "migraine" : "Basilar-type aura"
     },
 
     {
+        "key": "85",
+        "parent": "72",
+        "migraine" : "Migraine without aura"
+    },
+
+    {
         "key": "86",
-        "parent": "78",
-        "migraine" : "Sporadic hemiplegic migraine"
+        "parent": "75",
+        "migraine" : "Migraine without aura"
     },
 
     {
         "key": "87",
-        "parent": "78",
-        "migraine" : "Typical aura with migraine"
+        "parent": "75",
+        "parameter":"Frequency",
+        "threshold":1.5,
+        "question":"Berapa kali kemunculan gejala dalam 1 bulan terakhir"
     },
 
     {
         "key": "88",
-        "parent": "79",
+        "parent": "76",
         "migraine" : "Migraine without aura"
     },
 
     {
         "key": "89",
-        "parent": "79",
+        "parent": "76",
         "migraine" : "Typical aura with migraine"
+    },
+
+    {
+        "key": "90",
+        "parent": "81",
+        "migraine" : "Basilar-type aura"
+    },
+
+    {
+        "key": "91",
+        "parent": "81",
+        "migraine" : "Sporadic hemiplegic migraine"
+    },
+
+    {
+        "key": "92",
+        "parent": "82",
+        "migraine" : "Basilar-type aura"
+    },
+
+    {
+        "key": "93",
+        "parent": "82",
+        "migraine" : "Basilar-type aura"
+    },
+
+    {
+        "key": "94",
+        "parent": "83",
+        "migraine" : "Basilar-type aura"
+    },
+
+    {
+        "key": "95",
+        "parent": "83",
+        "migraine" : "Basilar-type aura"
+    },
+
+    {
+        "key": "96",
+        "parent": "87",
+        "migraine" : "Basilar-type aura"
+    },
+
+    {
+        "key": "97",
+        "parent": "87",
+        "migraine" : "Migraine without aura"
     }
 ]

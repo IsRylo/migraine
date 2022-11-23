@@ -1,11 +1,12 @@
 class TreeNode {
-    constructor(key, {question = key, parameter, threshold = 0.5, answerOption=[], migraine=undefined},  parent = null) {
+    constructor(key, {question = key, parameter, threshold = 0.5, answerOption=[], migraine=null},  parent = null) {
         this.key = key;
         this.question = question;
         this.parameter = parameter;
         this.parent = parent;
         this.threshold = threshold;
         this.answerOption = answerOption;
+        this.migraine = migraine;
         this.children = [];
     }
 
@@ -19,8 +20,8 @@ class TreeNode {
 }
 
 class Tree {
-    constructor(key, {question = key, parameter = "Visual", threshold = 0.5, answerOption=[]}) {
-        const a = {question: question, parameter: parameter, threshold: threshold, answerOption: answerOption};
+    constructor(key, {question = key, parameter, threshold = 0.5, answerOption=[], migraine=null}) {
+        const a = {question: question, parameter: parameter, threshold: threshold, answerOption: answerOption, migraine:migraine};
         this.root = new TreeNode(key, a);
     }
 
@@ -42,14 +43,15 @@ class Tree {
         yield node;
     }
 
-    insert(parentNodeKey, key, {question = key, parameter = "Visual", threshold = 0.5, answerOption = []}) {
+    insert(parentNodeKey, key, {question = key, parameter, threshold = 0.5, answerOption = [], migraine=null}) {
         for (let node of this.preOrderTraversal()) {
             if (node.key === parentNodeKey) {
                 const a = {
                     question:question,
                     parameter : parameter,
-                    threshold :threshold
-                }
+                    threshold : threshold,
+                    migraine  : migraine
+                };
                 node.children.push(new TreeNode(key, a, node));
                 return true;
             }
