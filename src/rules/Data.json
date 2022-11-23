@@ -1,341 +1,398 @@
-{
-    "00": {
+[
+    {
+        "key": "00", 
         "parameter": "Visual",
         "threshold": 0.5,
         "question": "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan"
     },
 
-    "10": {
+    {
+        "key": "10", 
         "parent": "00",
         "parameter": "Sensory",
         "threshold": 0.5,
         "question": "Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
     },
 
-    "11": {
+    {
+        "key": "11",
         "parent": "00",
         "parameter": "Intensity",
         "threshold": 0.5,
         "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
     },
 
-    "20": {
+    {
+        "key": "20",
         "parent": "10",
         "parameter": "Dysphasia",
         "threshold": 0.5,
         "question": "Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)"
     },
 
-    "21": {
+    {
+        "key": "21",
         "parent": "10",
         "parameter": "Hypoacusis",
         "threshold": 0.5,
         "question": "Gangguan pendengaran (Tidak - 0, Ya - 1)"
     },
 
-    "22": {
+    {
+        "key": "22",
         "parent": "11",
-        "class" : "Other"
+        "migraine" : "Other"
     },
 
-    "23": {
+    {
+        "key": "23",
         "parent": "11",
         "parameter": "Vertigo",
         "threshold": 0.5,
         "question": "Mengalami pusing-pusing (Tidak - 0, Ya - 1)"
     },
 
-    "30": {
+    {
+        "key": "30",
         "parent": "20",
         "parameter": "Character",
         "threshold": 1.5,
         "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
 
-    "31": {
+    {
+        "key": "31",
         "parent": "20",
         "parameter": "Vertigo",
         "threshold": 0.5,
         "question": "Mengalami pusing-pusing (Tidak - 0, Ya - 1)"
     },
 
-    "32": {
+    {
+        "key": "32",
         "parent": "21",
-        "class" : "Basiliar-type aura"
+        "migraine" : "Basiliar-type aura"
     },
 
-    "33": {
+    {
+        "key": "33",
         "parent": "21",
-        "class" : "Typical aura with migraine"
+        "migraine" : "Typical aura with migraine"
     },
 
-    "34": {
+    {
+        "key": "34",
         "parent": "23",
         "parameter": "Location",
         "threshold": 1.5,
         "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi - 1, Dua atau lebih - 2)"
     },
 
-    "35": {
+    {
+        "key": "35",
         "parent": "23",
         "parameter": "Character",
         "threshold": 1.5,
         "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
 
-   "40": {
+   {
+        "key": "40",
         "parent": "30",
         "parameter": "Hypoacusis",
         "threshold": 0.5,
         "question": "Gangguan pendengaran (Tidak - 0, Ya - 1)"
     },
 
-    "41": {
+    {
+        "key": "41",
         "parent": "30",
-        "class" : "Familial hemiplegic migraine"
+        "migraine" : "Familial hemiplegic migraine"
     },
 
-    "42": {
+    {
+        "key": "42",
         "parent": "31",
-        "class" : "Sporadic hemiplegic migraine"
+        "migraine" : "Sporadic hemiplegic migraine"
     },
 
-    "43": {
+    {
+        "key": "43",
         "parent": "31",
-        "class" : "Migraine without aura"
+        "migraine" : "Migraine without aura"
     },
 
-    "44": {
+    {
+        "key": "44",
         "parent": "34",
         "parameter": "Dysphasia",
         "threshold": 0.5,
         "question": "Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)"
     },
 
-    "45": {
+    {
+        "key": "45",
         "parent": "34",
-        "class" : "Familial hemiplegic migraine"
+        "migraine" : "Familial hemiplegic migraine"
     },
 
-    "46": {
+    {
+        "key": "46",
         "parent": "35",
         "parameter": "Frequency",
         "threshold": 3.5,
         "question": "Berapa kali kemunculan gejala dalam 1 bulan terakhir"
     },
 
-    "47": {
+    {
+        "key": "47",
         "parent": "35",
-        "class" : "Familial hemiplegic migraine"
+        "migraine" : "Familial hemiplegic migraine"
     },
 
-    "50": {
+    {
+        "key": "50",
         "parent": "40",
         "parameter": "Frequency",
         "threshold": 1.5,
         "question": "Berapa kali kemunculan gejala dalam 1 bulan terakhir"
     },
 
-    "51": {
+    {
+        "key": "51",
         "parent": "40",
-        "class" : "Typical aura with migraine"
+        "migraine" : "Typical aura with migraine"
     },
 
-    "52": {
+    {
+        "key": "52",
         "parent": "44",
         "parameter": "Intensity",
         "threshold": 1.5,
         "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
     },
 
-    "53": {
+    {
+        "key": "53",
         "parent": "44",
         "parameter": "DPF",
         "threshold": 0.5,
         "question": "Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
     },
 
-    "54": {
+    {
+        "key": "54",
         "parent": "46",
         "parameter": "Age",
         "threshold": 30.5,
         "question": "Umur pasien"
     },
 
-    "55": {
+    {
+        "key": "55",
         "parent": "46",
-        "class" : "Basilar-type aura"
+        "migraine" : "Basilar-type aura"
     },
 
-    "60": {
+    {
+        "key": "60",
         "parent": "50",
         "parameter": "Age",
         "threshold": 32,
         "question": "Umur pasien"
     },
 
-    "61": {
+    {
+        "key": "61",
         "parent": "50",
-        "class" : "Typical aura without migraine"
+        "migraine" : "Typical aura without migraine"
     },
 
-    "62": {
+    {
+        "key": "62",
         "parent": "52",
         "parameter": "Visual",
         "threshold": 1.5,
         "question": "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan"
     },
 
-    "63": {
+    {
+        "key": "63",
         "parent": "52",
         "parameter": "Tinnitus",
         "threshold": 0.5,
         "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
     },
 
-    "64": {
+    {
+        "key": "64",
         "parent": "53",
         "parameter": "Sensory",
         "threshold": 1.0,
         "question": "Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
     },
 
-    "65": {
+    {
+        "key": "65",
         "parent": "53",
-        "class" : "Migraine without aura"
+        "migraine" : "Migraine without aura"
     },
 
-    "66": {
+    {
+        "key": "66",
         "parent": "54",
         "parameter": "DPF",
         "threshold": 0.5,
         "question": "Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
     },
 
-    "67": {
+    {
+        "key": "67",
         "parent": "54",
         "parameter": "Photophobia",
         "threshold": 0.5,
         "question": "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)"
     },
 
-    "70": {
+    {
+        "key": "70",
         "parent": "60",
         "parameter": "Age",
         "threshold": 29,
         "question": "Umur pasien"
     },
 
-    "71": {
+    {
+        "key": "71",
         "parent": "60",
-        "class" : "Typical aura without migraine"
+        "migraine" : "Typical aura without migraine"
     },
 
-    "72": {
+    {
+        "key": "72",
         "parent": "62",
-        "class" : "Migraine without aura"
+        "migraine" : "Migraine without aura"
     },
 
-    "73": {
+    {
+        "key": "73",
         "parent": "62",
         "parameter": "Age",
         "threshold": 27,
         "question": "Umur pasien"
     },
 
-    "74": {
+    {
+        "key": "74",
         "parent": "63",
         "parameter": "Phonophobia",
         "threshold": 0.5,
         "question": "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)"
     },
 
-    "75": {
+    {
+        "key": "75",
         "parent": "63",
-        "class" : "Typical aura with migraine"
+        "migraine" : "Typical aura with migraine"
     },
 
-    "76": {
+    {
+        "key": "76",
         "parent": "64",
-        "class" : "Sporadic hemiplegic migraine"
+        "migraine" : "Sporadic hemiplegic migraine"
     },
 
-    "77": {
+    {
+        "key": "77",
         "parent": "64",
-        "class" : "Basilar-type aura"
+        "migraine" : "Basilar-type aura"
     },
 
-    "78": {
+    {
+        "key": "78",
         "parent": "66",
         "parameter": "Defect",
         "threshold": 0.5,
         "question": "Cacat pada baik pada satu atau kedua mata bersamaan dengan bidang hidung (Tidak - 0, Ya - 1)"
     },
 
-    "79": {
+    {
+        "key": "79",
         "parent": "66",
         "parameter": "Duration",
         "threshold": 2.5,
         "question": "Durasi gejala yang terjadi dalam 1 hari"
     },
 
-    "710": {
+    {
+        "key": "710",
         "parent": "67",
-        "class" : "Familial hemiplegic migraine"
+        "migraine" : "Familial hemiplegic migraine"
     },
 
-    "711": {
+    {
+        "key": "711",
         "parent": "67",
-        "class" : "Typical aura with migraine"
+        "migraine" : "Typical aura with migraine"
     },
 
-    "80": {
+    {
+        "key": "80",
         "parent": "70",
-        "class" : "Typical aura without migraine"
+        "migraine" : "Typical aura without migraine"
     },
 
-    "81": {
+    {
+        "key": "81",
         "parent": "70",
-        "class" : "Familial hemiplegic migraine"
+        "migraine" : "Familial hemiplegic migraine"
     },
 
-    "82": {
+    {
+        "key": "82",
         "parent": "73",
-        "class" : "Sporadic hemiplegic migraine"
+        "migraine" : "Sporadic hemiplegic migraine"
     },
 
-    "83": {
+    {
+        "key": "83",
         "parent": "73",
-        "class" : "Basilar-type aura"
+        "migraine" : "Basilar-type aura"
     },
 
-    "84": {
+    {
+        "key": "84",
         "parent": "74",
-        "class" : "Familial hemiplegic migrain"
+        "migraine" : "Familial hemiplegic migrain"
     },
 
-    "85": {
+    {
+        "key": "85",
         "parent": "74",
-        "class" : "Basilar-type aura"
+        "migraine" : "Basilar-type aura"
     },
 
-    "86": {
+    {
+        "key": "86",
         "parent": "78",
-        "class" : "Sporadic hemiplegic migraine"
+        "migraine" : "Sporadic hemiplegic migraine"
     },
 
-    "87": {
+    {
+        "key": "87",
         "parent": "78",
-        "class" : "Typical aura with migraine"
+        "migraine" : "Typical aura with migraine"
     },
 
-    "88": {
+    {
+        "key": "88",
         "parent": "79",
-        "class" : "Migraine without aura"
+        "migraine" : "Migraine without aura"
     },
 
-    "89": {
+    {
+        "key": "89",
         "parent": "79",
-        "class" : "Typical aura with migraine"
+        "migraine" : "Typical aura with migraine"
     }
-}
+]

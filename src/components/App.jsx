@@ -1,157 +1,109 @@
 import "../App.css"
-import React, {
-  useState,
-  useEffect
-} from "react";
+import React, {useState, useEffect} from "react";
 import Answer from "./Answer";
-import Explanation from "./Explanation";
 import Question from "./Question";
-// import MigraineTree from "../rules/MigraineTree";
+import QuestionTree from "../rules/QuestionTree";
 import getClass from "../rules/MigraineRules"
+import Explanation from "./Explanation";
 
-// const tree = MigraineTree;
-// Age=0, Frequency=0, Location=0, Character=0, Intensity=0, Photophobia=0, Visual=0, Sensory=0, Dysphasia=0, Vertigo=0, Tinnitus=0, Hypoacusis=0, Defect=0, DPF=0
-const questions = [{
-    question: "Umur pasien",
-    parameter: "Age"
-  },
-  {
-    question: "Durasi gejala yang terjadi dalam 1 hari",
-    parameter: "Duration"
-  },
-  {
-    question: "Berapa kali kemunculan gejala dalam 1 bulan terakhir",
-    parameter: "Frequency"
-  },
-  // {
-  //   question: "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)",
-  //   parameter: "Location"
-  // },
-  // {
-  //   question: "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)",
-  //   parameter: "Character"
-  // },
-  // {
-  //   question: "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)",
-  //   parameter: "Intensity"
-  // },
-  // {
-  //   question: "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)",
-  //   parameter: "Photophobia"
-  // },
-  // {
-  //   question: "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan",
-  //   parameter: "Visual"
-  // },
-  // {
-  //   question: "Banyak komplikasi atau gejala yang berhubungan dengan indrawi",
-  //   parameter: "Sensory"
-  // },
-  // {
-  //   question: "Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)",
-  //   parameter: "Dysphasia"
-  // },
-  // {
-  //   question: "Mengalami pusing-pusing (Tidak - 0, Ya - 1)",
-  //   parameter: "Vertigo"
-  // },
-  // {
-  //   question: "Telinga berdenging (Tidak - 0, Ya - 1)",
-  //   parameter: "Tinnitus"
-  // },
-  // {
-  //   question: "Gangguang pendengaran (Tidak - 0, Ya - 1)",
-  //   parameter: "Hypoacusis"
-  // },
-  // {
-  //   question: "Cacat pada baik pada satu atau kedua mata bersamaan dengan bidang hidung (Tidak - 0, Ya - 1)",
-  //   parameter: "Defect"
-  // },
-  // {
-  //   question: "Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)",
-  //   parameter: "DPF"
-  // },
-  {
-    question: "",
-    parameter: undefined
-  }
-];
 
-const key_length = questions.length - 1;
+const key_length = 15;
 
 var activities = [];
 
 function App(props) {
-  const [key, setKey] = useState(0);
-
-  // Fungsi untuk menerima data dari Question
-
   // let curr = tree.find(key);
 
-  const [data, setData] = useState({
-    // question: curr.question,
-    question: questions[key].question,
-    answer: "",
-    date: new Date().toLocaleString(),
-    parameter: ""
-  });
+  const [currNode, setCurr] = useState(QuestionTree.root);
 
-  const questionToApp = (data) => {
-    setData(data);
-  }
+  console.log(currNode);
 
-  function processAnswer() {
-    console.log("Key: " + key);
-    if (key < key_length) return;
-    console.log("Activities: ");
-    console.log(activities)
-    var a = {};
-    for (let i = 1; i < activities.length; i++) {
-      a[activities[i].parameter] = activities[i].answer;
-    }
-    console.log(a);
-    var c = getClass(a);
-    console.log(c);
-    return c;
-  }
+  // function processAnswer() {
+  //   console.log("Activities: ");
+  //   console.log(activities)
+  //   var a = {};
+  //   for (let i = 1; i < activities.length; i++) {
+  //     a[activities[i].parameter] = activities[i].answer;
+  //   }
+  //   console.log(a);
+  //   var c = getClass(a);
+  //   console.log(c);
+  //   return c;
+  // }
 
   // Mencatat perubahan state 
-  useEffect(() => {
-    activities.push(data);
-  }, [key]);
+  // useEffect(() => {
+  //   activities.push(data);
+  // }, [key]);
+
+  function handleSubmit(){
+    const response = parseInt(document.querySelector('input[name="response"]').value);
+    const answer = {
+      "question": currNode.question,
+      "response": response,
+      "date": new Date().toLocaleString()
+    };
+    activities.push(answer);
+    console.log(activities);
+    setCurr(currNode["children"][response <= currNode["threshold"] ? 0 : 1]);
+  }
+
+  function createExplanation(element, index) {
+    return(
+      <Explanation 
+        key={index}
+        date={element["date"]}
+        question={element["question"]}
+        answer={"Anda menjawab : " + element["response"]}
+      />
+    );
+  }
 
   return ( 
   <div className = "App container" >
     <h1> Migraine Diagnostic System </h1> 
     <div className = "row top" >
+
+      {/* Question Section */}
       <div className = "col" >
-        <Question
-          // question={!curr.isLeaf ? curr.question : "No Questions Found."}
-          // answers={curr != undefined ? curr.answers : []}
-          // options={curr.children.map(child => {return child.key})}
-          // threshold={curr.threshold}
-          // parameter = {curr.parameter}
-          question = {key < key_length ? questions[key].question : "Tidak ada pertanyaan lanjut"}
-          parameter = {key < key_length ? questions[key].parameter : undefined}
-          currKey = {key}
-          onAnswerSubmit = {setKey}
-          onData = {questionToApp}
-        /> 
+        <div id="Question">
+            <h2>Question Section</h2>
+            <Question question={currNode.isLeaf ? "No further Questions" :currNode.question}/>
+            <form className="mt-4">
+                <div className="form-group">
+                <div className="Input">
+                  <label className="mx-2">{currNode.isLeaf ? "": currNode["parameter"] + ":"}  </label>
+                  {currNode.isLeaf ? "" : <input type="number" className="" aria-describedby="button" name="response" placeholder="Masukkan Nilai"/>}
+              </div>
+                </div>
+            </form>
+            {currNode.isLeaf ? "" : <button id="submit" className="btn btn-primary mt-3" onClick={handleSubmit}>Submit</button> }
+        </div>
       </div> 
-      { /* <p>{processAnswer()}</p> */ } 
+
+
+      {/* Explanaction Section */}
       <div className = "col" > 
-      {
-        /* <Explanation 
-                    activities={activities == undefined ? [] : activities}
-                  /> */
-      } 
+        <div id="Explanation">
+              <h2>Explanation Section</h2>
+              <div className="d-flex flex-column">
+                {activities.map(createExplanation)}
+              </div>
+          </div> 
       </div> 
+
+
     </div> 
+
+
+    {/* Bottom Row */}
     <div className = "row" >
-    <Answer answer = {
-      processAnswer()
-    }
-    /> 
+      {/* Answer Section */}
+    
+      {/* <Answer answer = {
+        processAnswer()
+      } />*/}
+ 
     </div> 
   </div>
   );
