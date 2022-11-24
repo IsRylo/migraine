@@ -79,7 +79,7 @@ function App() {
                   <div className="form-group">
                     <div className="Input">
                       <label className="input-label mx-2">{currNode.isLeaf ? "": currNode["parameter"] + ":"}  </label>
-                      {currNode.isLeaf ? "" : <input type="number" className="inputNumber" aria-describedby="button" name="response" placeholder="Masukkan Nilai"/>}
+                      {currNode.isLeaf ? "" : <input type="number" className="inputNumber" aria-describedby="button" name="response" placeholder="Masukkan Nilai" min={0}/>}
                       {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB"}} type="button">Submit</button> }
                     </div>
                   </div>
