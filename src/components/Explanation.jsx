@@ -1,6 +1,6 @@
 export default function Explanation(props){
     return (
-        <div className="Explanation-item">
+        <div className="Explanation">
             <div className="row">
                 <p>{props.question}</p>
             </div>

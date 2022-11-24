@@ -5,15 +5,11 @@ import QuestionTree from "../rules/QuestionTree";
 import getClass from "../rules/MigraineRules"
 import Explanation from "./Explanation";
 
-
-const key_length = 15;
-
 let activities = [];
 
 let params = {};
 
-function App(props) {
-  // let curr = tree.find(key);
+function App() {
 
   const [currNode, setCurr] = useState(QuestionTree.root);
 
@@ -30,7 +26,17 @@ function App(props) {
     }
   }, [currNode]);
 
+  function createAnswer(){
+    return(
+      <div id="Answer">
+      <h3 className="answer">Tipe Migraine adalah: {currNode["migraine"]}</h3> 
+      <p>{processAnswer()}</p>
+    </div>
+    );
+  }
+
   function handleSubmit(){
+    if (document.querySelector('input[name="response"]').value == "") return;
     const response = parseInt(document.querySelector('input[name="response"]').value);
     const answer = {
       "question": currNode.question,
@@ -55,24 +61,30 @@ function App(props) {
   }
 
   return ( 
-  <div className = "App container" >
-    <h1> Migraine Diagnostic System </h1> 
+  <div className = "App" >
+    <nav className="navbar navbar-dark bg-dark">
+      <div className="container-fluid">
+        <a className="navbar-brand mb-0 h1" style={{"color":"#FAFAFA"}}>Sistem Diagnosis Migraine</a>
+      </div>
+  </nav> 
     <div className = "row top" >
 
       {/* Question Section */}
       <div className = "col" >
         <div id="Question">
-            <h2>Question Section</h2>
-            <Question question={currNode.isLeaf ? "No further Questions" :currNode.question}/>
-            <form className="mt-4">
-                <div className="form-group">
-                <div className="Input">
-                  <label className="mx-2">{currNode.isLeaf ? "": currNode["parameter"] + ":"}  </label>
-                  {currNode.isLeaf ? "" : <input type="number" className="" aria-describedby="button" name="response" placeholder="Masukkan Nilai"/>}
-              </div>
-                </div>
-            </form>
-            {currNode.isLeaf ? "" : <button id="submit" className="btn btn-primary mt-3" onClick={handleSubmit}>Submit</button> }
+            <h2 className="section-title">Pertanyaan</h2>
+            <div id="question-content">
+              <Question question={currNode.isLeaf ? "Tidak ada pertanyaan lanjut" :currNode.question}/>
+              <form className="mt-4">
+                  <div className="form-group">
+                    <div className="Input">
+                      <label className="input-label mx-2">{currNode.isLeaf ? "": currNode["parameter"] + ":"}  </label>
+                      {currNode.isLeaf ? "" : <input type="number" className="inputNumber" aria-describedby="button" name="response" placeholder="Masukkan Nilai"/>}
+                      {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB"}} type="button">Submit</button> }
+                    </div>
+                  </div>
+              </form>
+            </div>
         </div>
       </div> 
 
@@ -80,21 +92,15 @@ function App(props) {
       {/* Explanaction Section */}
       <div className = "col" > 
         <div id="Explanation">
-              <h2>Explanation Section</h2>
+              <h2 className="section-title">Jawaban Anda</h2>
               <div className="d-flex flex-column">
                 {activities.map(createExplanation)}
               </div>
           </div> 
       </div> 
 
-
-    </div> 
-
-
-    {/* Bottom Row */}
-    <div className = "row" >
-      {currNode.isLeaf ? <h2>Your Migraine Type is: {currNode["migraine"]}</h2> : ""}
-      <p>{currNode.isLeaf ? processAnswer() : ""}</p>      
+      {/* Kalau pertanyaan sudah berakhir */}
+      {currNode.isLeaf ? createAnswer() : ""}
     </div> 
   </div>
   );

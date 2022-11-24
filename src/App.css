@@ -1,3 +1,77 @@
+body {
+  background-color: #F0DDDE;
+  font-family: "Cascadia Mono";
+}
+
 .top {
   height: 30rem;
+  margin-top: 1rem;
+  padding-inline:1rem;
+}
+
+#Question {
+  background-color: #D3D3D3;
+  padding:2rem;
+  color: #23212E;
+  border-radius:1rem;
+  height: 30rem;
+}
+
+nav {
+  border-radius: 0rem 0rem 3rem 3rem;
+  padding:2rem;
+}
+
+#Explanation{
+  background-color: #D3D3D3;
+  /* padding:3rem; */
+  border-radius:1rem;
+  height: 30rem;
+  padding: 2rem;
+  overflow-y: scroll;
+}
+
+.Explanation {
+  background-color: #EDECEB;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+#Answer {
+  border-radius: 3rem 3rem 0rem 0rem;
+  padding: 2rem;
+  background-color: #EDECEB;
+  position: fixed; 
+  bottom:0%;
+  left: 0%;
+  width:100%;
+}
+
+.section-title {
+  text-decoration: underline;
+}
+
+
+.input-label {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.inputNumber {
+  height: 2.5rem;
+  padding: 1rem;
+  border: 0px;
+  border-radius: 0.5rem;
+}
+
+.Input {
+  width: fit-content;
+  margin-inline:auto;
+}
+
+#question-content {
+  text-align: center;
+  height: inherit;
+  margin-top:7.5rem;
 }
