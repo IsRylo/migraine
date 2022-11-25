@@ -35,17 +35,66 @@ function App() {
     );
   }
 
+  function createInput(){
+    if (currNode.answerOption.length > 0) return(
+      <div className="radioInputs">
+        <label className="input-label mx-2">{currNode["parameter"] + ":"}  </label>
+        {currNode.answerOption.map((element, index) => {
+          return(
+            <div className="form-check form-check-inline" key={index}>
+              <input id={element} type="radio" className="form-check-input" aria-describedby="button" name="response" value={index}/>
+              <label className="form-check-label" htmlFor={element}>{element}</label>
+            </div>
+          )
+        })}
+      </div>
+    );
+
+    else return(
+      <div className="numberInput">
+        <label className="input-label mx-2">{currNode["parameter"] + ":"}  </label>
+        <input type="number" className="inputNumber" aria-describedby="button" name="response" onChange={validation} placeholder="Masukkan Nilai" min={0}/>
+      </div>
+    );
+  }
+
+  function validation() {
+    if (document.querySelector('input[name="response"]').value < 0) {
+      document.getElementById("error").innerHTML = "Angka harus lebih dari 0";
+    }
+  }
+
   function handleSubmit(){
-    if (document.querySelector('input[name="response"]').value == "") return;
-    const response = parseInt(document.querySelector('input[name="response"]').value);
-    const answer = {
-      "question": currNode.question,
-      "response": response,
-      "date": new Date().toLocaleString(),
-      "parameter": currNode["parameter"]
-    };
+    let response, answer;
+    if (currNode.answerOption.length > 0) {
+      if (document.querySelector('input[name="response"]:checked') == null) {
+        document.getElementById("error").innerHTML = "Tolong Pilih Salah Satu opsi";
+        return;
+      };
+      response = parseInt(document.querySelector('input[name="response"]:checked').value);  
+      answer = {
+        "question": currNode.question,
+        "response": currNode.answerOption[response],
+        "date": new Date().toLocaleString(),
+        "parameter": currNode["parameter"]
+      };
+    } else {
+      if (document.querySelector('input[name="response"]').value == "") {
+        document.getElementById("error").innerHTML = "Tolong Masukkan sebuah Nilai";
+        return;
+      }
+      response = parseInt(document.querySelector('input[name="response"]').value); 
+      answer = {
+        "question": currNode.question,
+        "response": response,
+        "date": new Date().toLocaleString(),
+        "parameter": currNode["parameter"]
+      };
+    }
+    
     activities.push(answer);
     params[currNode.parameter] = response;
+    document.getElementById("error").innerHTML = "";
     setCurr(currNode["children"][response <= currNode["threshold"] ? 0 : 1]);
   }
 
@@ -73,17 +122,17 @@ function App() {
       <div className = "col" >
         <div id="Question">
             <h2 className="section-title">Pertanyaan</h2>
-            <div id="question-content">
+            <div id="question-content" className="d-flex flex-column justify-content-evenly align-items-center">
               <Question question={currNode.isLeaf ? "Tidak ada pertanyaan lanjut" :currNode.question}/>
               <form className="mt-4">
                   <div className="form-group">
                     <div className="Input">
-                      <label className="input-label mx-2">{currNode.isLeaf ? "": currNode["parameter"] + ":"}  </label>
-                      {currNode.isLeaf ? "" : <input type="number" className="inputNumber" aria-describedby="button" name="response" placeholder="Masukkan Nilai" min={0}/>}
-                      {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB"}} type="button">Submit</button> }
+                      {currNode.isLeaf ? "" : createInput()}
                     </div>
                   </div>
               </form>
+              {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB", "width":"max-content"}} type="button">Submit</button> }
+              <p id="error"></p>
             </div>
         </div>
       </div> 

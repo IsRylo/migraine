@@ -50,7 +50,8 @@ class Tree {
                     question:question,
                     parameter : parameter,
                     threshold : threshold,
-                    migraine  : migraine
+                    migraine  : migraine,
+                    answerOption: answerOption
                 };
                 node.children.push(new TreeNode(key, a, node));
                 return true;

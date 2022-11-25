@@ -65,13 +65,12 @@ nav {
   border-radius: 0.5rem;
 }
 
-.Input {
-  width: fit-content;
-  margin-inline:auto;
-}
 
 #question-content {
   text-align: center;
-  height: inherit;
-  margin-top:7.5rem;
+  height: 20vw;
+}
+
+#error {
+  color: crimson;
 }

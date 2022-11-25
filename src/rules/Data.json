@@ -18,6 +18,7 @@
         "key": "11",
         "parent": "00",
         "parameter": "Character",
+        "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 0.5,
         "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
@@ -26,6 +27,7 @@
         "key": "20",
         "parent": "10",
         "parameter": "Intensity",
+        "answerOption":["Tidak Ada", "Ringan", "Sedang", "Parah"],
         "threshold": 2.5,
         "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
     },
@@ -34,6 +36,7 @@
         "key": "21",
         "parent": "10",
         "parameter": "Hypoacusis",
+        "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
         "question": "Gangguan pendengaran (Tidak - 0, Ya - 1)"
     },
@@ -48,6 +51,7 @@
         "key": "23",
         "parent": "11",
         "parameter": "Vertigo",
+        "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
         "question": "Mengalami pusing-pusing (Tidak - 0, Ya - 1)"
     },
@@ -62,6 +66,7 @@
         "key": "31",
         "parent": "20",
         "parameter": "Character",
+        "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 1.5,
         "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
@@ -70,6 +75,7 @@
         "key": "32",
         "parent": "21",
         "parameter": "Location",
+        "answerOption":["Tidak Ada", "Satu sisi", "Dua atau lebih"],
         "threshold": 1.5,
         "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)"
     },
@@ -84,6 +90,7 @@
         "key": "34",
         "parent": "23",
         "parameter": "Tinnitus",
+        "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
         "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
     },
@@ -92,6 +99,7 @@
         "key": "35",
         "parent": "23",
         "parameter": "Defect",
+        "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
         "question": "Cacat pada baik pada satu atau kedua mata bersamaan dengan bidang hidung (Tidak - 0, Ya - 1)"
     },
@@ -100,6 +108,7 @@
         "key": "40",
         "parent": "31",
         "parameter": "Tinnitus",
+        "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
         "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
     },
@@ -126,6 +135,7 @@
         "key": "44",
         "parent": "34",
         "parameter": "Location",
+        "answerOption":["Tidak Ada", "Satu sisi", "Dua atau lebih"],
         "threshold": 1.5,
         "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)"
     },
@@ -182,6 +192,7 @@
         "key": "54",
         "parent": "45",
         "parameter": "Character",
+        "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 1.5,
         "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
@@ -190,15 +201,17 @@
         "key": "55",
         "parent": "45",
         "parameter":"DPF",
+        "answerOption":["Tidak", "Ya"],
         "threshold":0.5,
-        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Tidak - 0, Ya - 1)"
     },
     {
         "key": "56",
         "parent": "46",
         "parameter":"DPF",
+        "answerOption":["Tidak", "Ya"],
         "threshold":0.5,
-        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Tidak - 0, Ya - 1)"
     },
     {
         "key": "57",
@@ -211,6 +224,7 @@
         "key": "60",
         "parent": "52",
         "parameter": "Intensity",
+        "answerOption":["Tidak Ada", "Ringan", "Sedang", "Parah"],
         "threshold": 1.5,
         "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
     },
@@ -257,6 +271,7 @@
         "key": "67",
         "parent": "56",
         "parameter": "Photophobia",
+        "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
         "question": "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)"
     },
@@ -273,6 +288,7 @@
         "key": "69",
         "parent": "57",
         "parameter": "Character",
+        "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 1.5,
         "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
     },
@@ -289,16 +305,18 @@
         "key": "71",
         "parent": "60",
         "parameter":"DPF",
+        "answerOption":["Tidak", "Ya"],
         "threshold":0.5,
-        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Tidak - 0, Ya - 1)"
     },
 
     {
         "key": "72",
         "parent": "61",
         "parameter":"DPF",
+        "answerOption":["Tidak", "Ya"],
         "threshold":0.5,
-        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Tidak - 0, Ya - 1)"
     },
 
     {
@@ -325,8 +343,9 @@
         "key": "76",
         "parent": "68",
         "parameter":"DPF",
+        "answerOption":["Tidak", "Ya"],
         "threshold":0.5,
-        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Not - 0, Yes - 1)"
+        "question":"Ada anggota keluarga atau keturunan yang mengalami gejala yang sama (Tidak - 0, Ya - 1)"
     },
 
     {
