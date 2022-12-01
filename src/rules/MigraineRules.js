@@ -1,4 +1,4 @@
-function predict({Age=0, Frequency=0, Location=0, Character=0, Intensity=0, Photophobia=0, Visual=0, Sensory=0, Dysphasia=0, Vertigo=0, Tinnitus=0, Hypoacusis=0, Defect=0, DPF=0}) {
+export default function predict({Age=0, Frequency=0, Location=0, Character=0, Intensity=0, Photophobia=0, Visual=0, Sensory=0, Dysphasia=0, Vertigo=0, Tinnitus=0, Hypoacusis=0, Defect=0, DPF=0}) {
     if (Visual <= 0.5) {
         if (Sensory <= 0.5) {
             if (Intensity <= 2.5) {
@@ -89,15 +89,3 @@ function predict({Age=0, Frequency=0, Location=0, Character=0, Intensity=0, Phot
         }
     }
 }
-
-export default function getClass({Age=0, Frequency=0, Location=0, Character=0, Intensity=0, Photophobia=0, Visual=0, Sensory=0, Dysphasia=0, Vertigo=0, Tinnitus=0, Hypoacusis=0, Defect=0, DPF=0}) {
-    const classes = ['Typical aura with migraine', 'Migraine without aura', 'Typical aura without migraine', 'Familial hemiplegic migraine', 'Sporadic hemiplegic migraine', 'Basilar-type Aura', 'Other']
-    const a = {
-        Age:Age, Frequency:Frequency, Location:Location, Character:Character, Intensity:Intensity, Photophobia:Photophobia, Visual:Visual, Sensory:Sensory, Dysphasia:Dysphasia, Vertigo:Vertigo, Tinnitus:Tinnitus, Hypoacusis:Hypoacusis, Defect:Defect, DPF:DPF
-    };
-    const [result, certain] = predict(a);
-    const migraine = classes[result.indexOf(Math.max(...result))]
-    return "Migraine class: " + migraine +  " with certainty percentage of " + certain*100 + "%";
-}
-
-// console.log(getClass(37, 1, 1, 1, 3, 1, 1, 0, 0, 1, 0, 0, 0, 1)); Contoh penggunaan

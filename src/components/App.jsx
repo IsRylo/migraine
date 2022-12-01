@@ -2,8 +2,9 @@ import "../App.css"
 import React, {useState, useEffect} from "react";
 import Question from "./Question";
 import QuestionTree from "../rules/QuestionTree";
-import getClass from "../rules/MigraineRules"
 import Explanation from "./Explanation";
+import Modal from "./Modal"
+import predict from "../rules/MigraineRules";
 
 let activities = [];
 
@@ -12,10 +13,22 @@ let params = {};
 function App() {
 
   const [currNode, setCurr] = useState(QuestionTree.root);
+  const [isDisabled, setDisabled] = useState(true);
+  const [error, setError] = useState("");
 
   function processAnswer() {
     var c = getClass(params);
     return c;
+  }
+
+  function getClass({Age=0, Frequency=0, Location=0, Character=0, Intensity=0, Photophobia=0, Visual=0, Sensory=0, Dysphasia=0, Vertigo=0, Tinnitus=0, Hypoacusis=0, Defect=0, DPF=0}) {
+      const classes = ['Typical aura with migraine', 'Migraine without aura', 'Typical aura without migraine', 'Familial hemiplegic migraine', 'Sporadic hemiplegic migraine', 'Basilar-type Aura', 'Other']
+      const a = {
+          Age:Age, Frequency:Frequency, Location:Location, Character:Character, Intensity:Intensity, Photophobia:Photophobia, Visual:Visual, Sensory:Sensory, Dysphasia:Dysphasia, Vertigo:Vertigo, Tinnitus:Tinnitus, Hypoacusis:Hypoacusis, Defect:Defect, DPF:DPF
+      };
+      const [result, certain] = predict(a);
+      const migraine = classes[result.indexOf(Math.max(...result))]
+      return migraine +  " dengan persentase kepastian " + certain*100 + "%";
   }
 
   // Mencatat perubahan state 
@@ -27,11 +40,19 @@ function App() {
   }, [currNode]);
 
   function createAnswer(){
+
+    const title = processAnswer();
+    const [prediction] = predict(params);
+    const sum = prediction.reduce((accumulator, value) => {return accumulator + value;}, 0);
+
     return(
-      <div id="Answer">
-      <h3 className="answer">Tipe Migraine adalah: {currNode["migraine"]}</h3> 
-      <p>{processAnswer()}</p>
-    </div>
+      <Modal 
+        title={"Tipe Migrainemu adalah " + title}
+        show={currNode.isLeaf}
+        sum={sum}
+        prediction={prediction}
+        onReload={() => window.location.reload(false)}
+      />
     );
   }
 
@@ -60,7 +81,11 @@ function App() {
 
   function validation() {
     if (document.querySelector('input[name="response"]').value < 0) {
-      document.getElementById("error").innerHTML = "Angka harus lebih dari 0";
+      setDisabled(true);
+      setError("Input harus berupa angka positif");
+    } else {
+      setError("");
+      setDisabled(false);
     }
   }
 
@@ -68,7 +93,7 @@ function App() {
     let response, answer;
     if (currNode.answerOption.length > 0) {
       if (document.querySelector('input[name="response"]:checked') == null) {
-        document.getElementById("error").innerHTML = "Tolong Pilih Salah Satu opsi";
+        setError("Tolong Pilih Salah Satu opsi");
         return;
       };
       response = parseInt(document.querySelector('input[name="response"]:checked').value);  
@@ -80,7 +105,7 @@ function App() {
       };
     } else {
       if (document.querySelector('input[name="response"]').value == "") {
-        document.getElementById("error").innerHTML = "Tolong Masukkan sebuah Nilai";
+        setError("Tolong Masukkan sebuah Angka");
         return;
       }
       response = parseInt(document.querySelector('input[name="response"]').value); 
@@ -94,7 +119,7 @@ function App() {
     
     activities.push(answer);
     params[currNode.parameter] = response;
-    document.getElementById("error").innerHTML = "";
+    setError("");
     setCurr(currNode["children"][response <= currNode["threshold"] ? 0 : 1]);
   }
 
@@ -115,14 +140,15 @@ function App() {
       <div className="container-fluid">
         <a className="navbar-brand mb-0 h1" style={{"color":"#FAFAFA"}}>Sistem Diagnosis Migraine</a>
       </div>
+      
   </nav> 
     <div className = "row top" >
-
+    <Modal />
       {/* Question Section */}
       <div className = "col" >
         <div id="Question">
-            <h2 className="section-title">Pertanyaan</h2>
-            <div id="question-content" className="d-flex flex-column justify-content-evenly align-items-center">
+          <h2 className="section-title mb-5">Pertanyaan</h2>
+            <div id="question-content" style={{"height": "20vw", "textAlign":"center"}} className="d-flex flex-column justify-content-evenly align-items-center">
               <Question question={currNode.isLeaf ? "Tidak ada pertanyaan lanjut" :currNode.question}/>
               <form className="mt-4">
                   <div className="form-group">
@@ -131,8 +157,8 @@ function App() {
                     </div>
                   </div>
               </form>
-              {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB", "width":"max-content"}} type="button">Submit</button> }
-              <p id="error"></p>
+              {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB", "width":"max-content"}} type="button" disabled={isDisabled}>Submit</button> }
+              <p id="error">{error}</p>
             </div>
         </div>
       </div> 
@@ -149,8 +175,8 @@ function App() {
       </div> 
 
       {/* Kalau pertanyaan sudah berakhir */}
-      {currNode.isLeaf ? createAnswer() : ""}
     </div> 
+    {currNode.isLeaf ? createAnswer() : ""}
   </div>
   );
 }
