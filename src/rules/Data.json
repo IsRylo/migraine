@@ -3,7 +3,7 @@
         "key": "00", 
         "parameter": "Visual",
         "threshold": 0.5,
-        "question": "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan"
+        "question": "Berapa banyak gejala visual yang Anda alami? Gejala visual dapat berupa: melihat bentuk-bentuk, melihat titik terang atau kilatan cahaya, kehilangan penglihatan sewaktu-waktu."
     },
 
     {
@@ -11,7 +11,7 @@
         "parent": "00",
         "parameter": "Sensory",
         "threshold": 0.5,
-        "question": "Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
+        "question": "Berapa banyak jenis gejala indrawi yang Anda alami? Gejala Indrawi dapat berupa: Sensasi berjarum di lengan atau kaki, Kelemahan atau mati rasa di wajah atau salah satu sisi tubuh, Tubuh lebih sensitif terhadap cahaya, atau Kesulitan berbicara."
     },
 
     {
@@ -20,7 +20,7 @@
         "parameter": "Character",
         "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 0.5,
-        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
+        "question": "Bagaimana Anda menggambarkan rasa sakit yang Anda rasakan?"
     },
 
     {
@@ -29,7 +29,7 @@
         "parameter": "Intensity",
         "answerOption":["Tidak Ada", "Ringan", "Sedang", "Parah"],
         "threshold": 2.5,
-        "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
+        "question": "Seberapa intens rasa sakit yang Anda rasakan?"
     },
 
     {
@@ -38,7 +38,7 @@
         "parameter": "Hypoacusis",
         "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
-        "question": "Gangguan pendengaran (Tidak - 0, Ya - 1)"
+        "question": "Apakah Anda mengalami gangguan pada pendengaran?"
     },
 
     {
@@ -53,7 +53,7 @@
         "parameter": "Vertigo",
         "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
-        "question": "Mengalami pusing-pusing (Tidak - 0, Ya - 1)"
+        "question": "Apakah kamu pusing?"
     },
 
     {
@@ -68,7 +68,7 @@
         "parameter": "Character",
         "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 1.5,
-        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
+        "question": "Bagaimana Anda menggambarkan rasa sakit yang Anda rasakan?"
     },
 
     {
@@ -77,7 +77,7 @@
         "parameter": "Location",
         "answerOption":["Tidak Ada", "Satu sisi", "Dua atau lebih"],
         "threshold": 1.5,
-        "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)"
+        "question": "Tolong gambarkan lokasi kesakitan di kepala Anda."
     },
 
     {
@@ -92,7 +92,7 @@
         "parameter": "Tinnitus",
         "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
-        "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
+        "question": "Apakah telinga Anda berdenging?"
     },
 
     {
@@ -101,7 +101,7 @@
         "parameter": "Defect",
         "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
-        "question": "Cacat pada baik pada satu atau kedua mata bersamaan dengan bidang hidung (Tidak - 0, Ya - 1)"
+        "question": "Apakah Anda cacat pada kedua mata dan hidung?"
     },
 
    {
@@ -110,7 +110,7 @@
         "parameter": "Tinnitus",
         "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
-        "question": "Telinga berdenging (Tidak - 0, Ya - 1)"
+        "question": "Apakah telinga Anda berdenging?"
     },
 
     {
@@ -137,7 +137,7 @@
         "parameter": "Location",
         "answerOption":["Tidak Ada", "Satu sisi", "Dua atau lebih"],
         "threshold": 1.5,
-        "question": "Lokasi penyakit yang dirasakan pada kepala (Tidak ada - 0, Satu sisi- 1, Dua atau lebih- 2)"
+        "question": "Tolong gambarkan lokasi kesakitan di kepala Anda."
     },
 
     {
@@ -194,7 +194,7 @@
         "parameter": "Character",
         "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 1.5,
-        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
+        "question": "Bagaimana Anda menggambarkan rasa sakit yang Anda rasakan?"
     },
 
     {
@@ -226,7 +226,7 @@
         "parameter": "Intensity",
         "answerOption":["Tidak Ada", "Ringan", "Sedang", "Parah"],
         "threshold": 1.5,
-        "question": "Intensitas penyakit yang dirasakan (Tidak ada - 0, Ringan - 1, Sedang - 2, Parah - 3)"
+        "question": "Seberapa intens rasa sakit yang Anda rasakan?"
     },
 
     {
@@ -273,7 +273,7 @@
         "parameter": "Photophobia",
         "answerOption":["Tidak", "Ya"],
         "threshold": 0.5,
-        "question": "Sensitif terhadap cahaya (Tidak - 0, Ya - 1)"
+        "question": "Apakah Anda merasa tidak nyaman di dekat cahaya?"
     },
     
     {
@@ -290,7 +290,7 @@
         "parameter": "Character",
         "answerOption": ["Tidak Ada", "Berdenyut-denyut", "Konstant"],
         "threshold": 1.5,
-        "question": "Jenis rasa sakit yang dipilih Throbbing or constant pain (Tidak ada - 0, Berdenyut-denyut - 1, Konstan- 2)"
+        "question": "Bagaimana Anda menggambarkan rasa sakit yang Anda rasakan?"
     },
 
     {
@@ -298,7 +298,7 @@
         "parent": "60",
         "parameter": "Visual",
         "threshold": 1.5,
-        "question": "Banyak komplikasi atau gejala yang berhubungan dengan penglihatan"
+        "question": "Berapa banyak gejala visual yang Anda alami? Gejala visual dapat berupa: melihat bentuk-bentuk, melihat titik terang atau kilatan cahaya, kehilangan penglihatan sewaktu-waktu."
     },
 
     {
@@ -336,7 +336,7 @@
         "parent": "67",
         "parameter":"Sensory",
         "threshold":1.0,
-        "question":"Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
+        "question":"Berapa banyak jenis gejala indrawi yang Anda alami? Gejala Indrawi dapat berupa: Sensasi berjarum di lengan atau kaki, Kelemahan atau mati rasa di wajah atau salah satu sisi tubuh, Tubuh lebih sensitif terhadap cahaya, atau Kesulitan berbicara."
     },
 
     {
@@ -377,7 +377,7 @@
         "parent": "70",
         "parameter":"Sensory",
         "threshold":0.5,
-        "question":"Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
+        "question":"Berapa banyak jenis gejala indrawi yang Anda alami? Gejala Indrawi dapat berupa: Sensasi berjarum di lengan atau kaki, Kelemahan atau mati rasa di wajah atau salah satu sisi tubuh, Tubuh lebih sensitif terhadap cahaya, atau Kesulitan berbicara."
     },
 
     {
@@ -385,7 +385,7 @@
         "parent": "71",
         "parameter":"Sensory",
         "threshold":0.5,
-        "question":"Banyak komplikasi atau gejala yang berhubungan dengan indrawi"
+        "question":"Berapa banyak jenis gejala indrawi yang Anda alami? Gejala Indrawi dapat berupa: Sensasi berjarum di lengan atau kaki, Kelemahan atau mati rasa di wajah atau salah satu sisi tubuh, Tubuh lebih sensitif terhadap cahaya, atau Kesulitan berbicara."
     },
 
     {

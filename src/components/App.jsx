@@ -28,7 +28,7 @@ function App() {
       };
       const [result, certain] = predict(a);
       const migraine = classes[result.indexOf(Math.max(...result))]
-      return migraine +  " dengan persentase kepastian " + certain*100 + "%";
+      return migraine +  " dengan persentase kepastian " + (certain*100).toFixed(2) + "%";
   }
 
   // Mencatat perubahan state 

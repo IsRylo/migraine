@@ -14,7 +14,7 @@ export default function Modal(props){
         if (element < 1) return;
         return(
             <div className="potential-solution">
-                <p>Persentase migraine adalah {classes[index]} :  {100 * element / sum} %</p>
+                <p>Persentase migraine adalah {classes[index]} :  {(100 * element / sum).toFixed(2)} %</p>
             </div>
         );
     }
