@@ -179,7 +179,8 @@
         "parent": "44",
         "parameter": "Dysphasia",
         "threshold": 0.5,
-        "question": "Kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan (Tidak - 0, Ya - 1)"
+        "answerOption":["Tidak", "Ya"],
+        "question": "Apakah Anda mengalami kesulitan dalam mengkoordinasikan pembicaraan atau kata-kata yang diucapkan?"
     },
 
     {

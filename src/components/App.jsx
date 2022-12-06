@@ -148,7 +148,7 @@ function App() {
       <div className = "col" >
         <div id="Question">
           <h2 className="section-title mb-5">Pertanyaan</h2>
-            <div id="question-content" style={{"height": "20vw", "textAlign":"center"}} className="d-flex flex-column justify-content-evenly align-items-center">
+            <div id="question-content" style={{"height": "20vw", "textAlign":"center"}} className="">
               <Question question={currNode.isLeaf ? "Tidak ada pertanyaan lanjut" :currNode.question}/>
               <form className="mt-4">
                   <div className="form-group">
@@ -157,8 +157,8 @@ function App() {
                     </div>
                   </div>
               </form>
-              {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB", "width":"max-content"}} type="button" disabled={isDisabled}>Submit</button> }
-              <p id="error">{error}</p>
+              {currNode.isLeaf ? "" : <button id="submit" className="btn mx-3 mt-5" onClick={handleSubmit} style={{"backgroundColor":"#EDECEB", "width":"max-content"}} type="button" disabled={isDisabled}>Submit</button> }
+              <p id="error" className="mt-5">{error}</p>
             </div>
         </div>
       </div> 
