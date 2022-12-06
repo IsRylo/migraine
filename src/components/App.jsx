@@ -104,7 +104,7 @@ function App() {
         "parameter": currNode["parameter"]
       };
     } else {
-      if (document.querySelector('input[name="response"]').value == "") {
+      if (document.querySelector('input[name="response"]').value === "") {
         setError("Tolong Masukkan sebuah Angka");
         return;
       }
@@ -138,7 +138,7 @@ function App() {
   <div className = "App" >
     <nav className="navbar navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand mb-0 h1" style={{"color":"#FAFAFA"}}>Sistem Diagnosis Migraine</a>
+        <a href="#" className="navbar-brand mb-0 h1" style={{"color":"#FAFAFA"}}>Sistem Diagnosis Migraine</a>
       </div>
       
   </nav> 
